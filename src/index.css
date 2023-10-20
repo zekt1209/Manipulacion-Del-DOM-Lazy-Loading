@@ -1,3 +1,155 @@
 @import 'tailwindcss/dist/base.css';
 @import 'tailwindcss/dist/components.css';
 @import 'tailwindcss/dist/utilities.css';
+
+/* Shared */
+.controlsBtn important {
+    padding: 4px;
+    border: 1px solid black;
+    border-radius: 8px;
+    /* margin-top: 8px; */
+}
+
+/* Controls */
+
+.controls_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px;
+    /* box-sizing: border-box; */
+}
+
+
+.agregar_button {
+  appearance: button;
+  background-color: #1899D6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  /* width: 100%; */
+}
+
+.agregar_button:after {
+  background-clip: padding-box;
+  background-color: #1CB0F6;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.agregar_button:main,
+.agregar_button:focus {
+  user-select: auto;
+}
+
+.agregar_button:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.agregar_button:disabled {
+  cursor: auto;
+}
+
+.agregar_button:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+/* ----------------------- */
+
+/* CSS */
+.limpiar_button {
+  appearance: none;
+  background-color: #FFFFFF;
+  border-radius: 40em;
+  border-style: none;
+  box-shadow: #ADCFFF 0 -12px 6px inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -.24px;
+  /* margin: 0; */
+  margin-top: 10px;
+  outline: none;
+  padding: 1rem 1.3rem;
+  quotes: auto;
+  text-align: center;
+  text-decoration: none;
+  transition: all .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.limpiar_button:hover {
+  background-color: #FFC229;
+  box-shadow: #FF6314 0 -6px 8px inset;
+  transform: scale(1.125);
+}
+
+.limpiar_button:active {
+  transform: scale(1.025);
+}
+
+@media (min-width: 768px) {
+  .limpiar_button {
+    font-size: 1.5rem;
+    padding: .75rem 2rem;
+  }
+}
+
+
+/* -------------------------- */
+
+
+/* App */
+
+.app_imageContainer {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    padding: 8px;
+}
+
+.app_image {
+    width: 450px;
+    height: 450px;
+}
+
