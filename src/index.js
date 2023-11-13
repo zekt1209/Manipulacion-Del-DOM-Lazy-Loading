@@ -1,13 +1,11 @@
 import * as nodes from './nodes'
-/**
- * This file is just a silly example to show everything working in the browser.
- * When you're ready to start on your site, clear the file. Happy hacking!
- **/
+import { registerImage, action } from "./lazy";
 
 console.log('Happy hacking :)');
 
 // Utils
 const API = 'https://randomfox.ca/floof';
+
 
 
 const fetchData = async (url) => {
@@ -46,21 +44,40 @@ const getRandomFoxes = async (url) => {
    
     // Maquetamos el HTML desde dentro hacia afuera para ir insertando los child
     const img = document.createElement('img');
-    img.setAttribute('src', imageUrl);
+    // img.setAttribute('src', imageUrl);
+    img.dataset.src = imageUrl;
+    // img.dataset.loquesea = 'hellou';
+    // img.setAttribute('data-src', imageUrl); // Si usamos setAttribute, el atributo a modificar se tiene que usar con sintaxis HTML
     img.classList.add('app_image');
-    img.setAttribute('alt', 'fox image');
+    img.classList.add('randomClass');
+    img.classList.add('randomClass2');
+    // img.setAttribute('alt', 'fox image');
+    // img.style.width = '450px';
+    // img.style.height = '450px';
+
+    const imgWrapper = document.createElement('div');
+    imgWrapper.classList.add('app_image','loading_skeleton_main_images');
+
+    // *** Eventos individuales al clickar cada child (Imagenes)
+    // img.addEventListener('click', () => {
+    //     console.log("url: " + imageUrl + ", Link: " + data.link);
+    // });
 
     const imageContainer = document.createElement('div');
     imageContainer.classList.add('app_imageContainer');
-    imageContainer.appendChild(img);
+    // imageContainer.appendChild(img);
+    // Observar al container con la imagen
+    registerImage(imageContainer);
 
     const app = document.querySelector('#app');
+    imgWrapper.appendChild(img);
+    imageContainer.appendChild(imgWrapper);
     app.appendChild(imageContainer);
 
 }
 
 // EventListeners
-nodes.agregarBtn.addEventListener('click', () => {
+nodes.agregarBtn.addEventListener('click', (event) => {
     getRandomFoxes(API);
 });
 
@@ -69,9 +86,25 @@ nodes.limpiarBtn.addEventListener('click', () => {
     nodes.app.innerHTML = "";
 })
 
+// Event delegation
+nodes.app.addEventListener('click', (event) => {
+
+    //const nodosDelParent = [...event.target.parentElement.childNodes]
+
+    if (event.target.className.includes('randomClass2')) {
+        //console.log('SI contiene');
+        // console.log(event);
+    } else {
+        // console.log('NO contiene');
+    }
+});
+
+
+//testDiv.innerText = "Hello World";
+
 
 
 // fetchData(API);
-getRandomFoxes(API);
+// getRandomFoxes(API);
 // getRandomFoxes(API);
 // getRandomFoxes(API);
