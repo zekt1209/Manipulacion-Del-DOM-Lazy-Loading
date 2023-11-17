@@ -5,6 +5,6 @@ module.exports = {
     src: '/_dist_',
   },
   buildOptions: {
-    baseUrl: '',
+    baseUrl: 'https://github.com/zekt1209/Manipulacion-Del-DOM-Lazy-Loading',
   },
 }
